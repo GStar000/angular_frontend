@@ -1,0 +1,44 @@
+<div *ngFor="let type of optionTypes" class="content">
+  
+  <div *ngFor="let variant of (customOptionTypesHash | keys)">
+    <div *ngIf="variant.key == type.name">
+      <div class="size-buttons-size-header">
+        <h4>{{ variant.key }}</h4>
+      </div>
+      <button class="option-buttons" *ngFor="let options of (variant.value | keys)" (click)="onOptionClick(options)" [class.selected]="options.key === currentSelectedOptions[variant.key]"
+        [ngClass]="{'disabled': isDisabled(correspondingOptions[variant.key], options.value['optionValue'].name)}">
+        <p>
+          {{ options.value["optionValue"].presentation }}
+          <span class="strike"></span>
+        </p>
+      </button>
+      <div *ngFor="let options of (variant.value | keys)">
+        <img 
+          [ngClass]="{'disabled': (options.key != currentSelectedOptions[variant.key]) || !getProductImageUrl(options.value['optionValue'].image)}"
+          style="width: 300px; height: 200px; margin-top: 10px; margin-bottom: 10px" 
+          [src]="getProductImageUrl(options.value['optionValue'].image)" />
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="type.spree_option_case_id == 2">
+    <h4>{{type.presentation}}</h4>
+    <input type="text" class={{type.name}} placeholder={{type.presentation}} autocomplete="off" />
+  </div>
+
+  <div *ngIf="type.spree_option_case_id == 3">
+    <app-product-upload-file [title]="type.presentation"></app-product-upload-file>
+  </div>
+
+  <div *ngIf="type.spree_option_case_id == 4">
+    <input type="checkbox" [checked]="isChecked" class= "check-option"/>
+    <label style="font-size: 18px;">{{type.presentation}}</label>
+  </div>
+
+   <div *ngIf="type.spree_option_case_id == 5">
+    <h4>{{type.presentation}}</h4>
+    <textarea class={{type.name}}></textarea>
+  </div> 
+
+  <span *ngIf="type.description">({{type.description}})</span>
+</div>

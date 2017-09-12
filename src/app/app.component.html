@@ -1,0 +1,22 @@
+<div class="default" *ngIf="currentUrl">
+  <section>
+    <app-header *ngIf="currentUrl && !isCheckoutRoute() && !isAdminRoute()" [taxonomies]="taxonomies$ | async"></app-header>
+    <app-checkout-header [currentStep]="currentStep" *ngIf="currentUrl && isCheckoutRoute()"></app-checkout-header>
+     <!-- <app-dash-header *ngIf="currentUrl && isAdminRoute()"></app-dash-header>   -->
+    <app-loading-indicator></app-loading-indicator>
+    <app-notification></app-notification>
+
+    <main *ngIf="currentUrl && !isAdminRoute()" class="body container">
+      <router-outlet></router-outlet>
+    </main>
+    <div *ngIf="currentUrl && isAdminRoute()" class="dash">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-checkout-footer *ngIf="currentUrl && isCheckoutRoute()"></app-checkout-footer>
+    <app-footer *ngIf="currentUrl && !isCheckoutRoute() && !isAdminRoute()"></app-footer>
+  </section>
+</div>
+<!-- <div class="default" *ngIf="currentUrl && isAdminRoute()">
+  <router-outlet></router-outlet>
+</div> -->

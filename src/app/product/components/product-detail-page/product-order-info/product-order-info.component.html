@@ -1,0 +1,8 @@
+<div class="content">
+    <div *ngFor="let option of orderOption">
+        <h4>{{option.presentation}}</h4>
+        <input type="text" class={{option.name}}  placeholder={{option.presentation}}
+                    autocomplete="off" />
+        <span>{{option.description}}</span>
+    </div>
+</div>

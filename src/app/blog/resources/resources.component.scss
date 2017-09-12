@@ -1,0 +1,38 @@
+
+.resource-padding-20 {
+    padding: 20px;
+}
+
+.resource-content {
+    padding: 10px;
+    border: solid 1px grey;
+    border-radius: 6px;
+}
+
+.resource-content::after,
+.resource-content::before{
+    content: '';
+    height: 3px;
+    border-radius: 0 0 4px 4px;
+    border:solid 1px grey;
+    border-top: 0;
+    position: absolute;
+}
+.resource-content::after {
+    bottom: 18px;
+    left: 22px;
+    right: 22px;
+}
+.resource-content::before {
+    bottom: 16px;
+    left: 25px;
+    right: 25px;
+}
+
+.resource-info {
+    padding-top: 10px;
+}
+
+p {
+    color: #444444;
+}

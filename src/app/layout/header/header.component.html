@@ -1,0 +1,77 @@
+<div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" routerLink="/"><img src="assets/logo.png" alt="Angular Spree"></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!-- <li *ngFor="let taxon of taxonList" class="">
+          <a (click)="selectTaxon(taxon)" href="javascript:void(0)">{{taxon.name}}
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>  -->
+          <li class=""><a routerLink="/aboutus">About Us</a></li>
+          <li class=""><a routerLink="/dentca-3d">Dentca 4 Center</a></li>
+          <li class="dropdown" dropdown>
+            <a class="dropdown-toggle" dropdownToggle>
+              <i class="" style="font-style:normal !important">Products</i>
+              <span class="caret"></span> 
+            </a>
+            <ul class="dropdown-menu" *dropdownMenu>
+              <li><a routerLink="/products/dentca-over">DENTCA 4</a></li>
+              <li><a routerLink="/products/dentca-temp">DENTCA Temp</a></li>
+              <li><a routerLink="/products/dentca-imd">DENTCA Immediate</a></li>
+              <li><a routerLink="/products/dentca-print">DENTCA 3D Printed Denture</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" dropdown>
+            <a class="dropdown-toggle" dropdownToggle>
+              <i class="" style="font-style:normal !important">Order</i>
+              <span class="caret"></span> 
+            </a>
+            <ul class="dropdown-menu" *dropdownMenu>
+              <ul class="taxonomy" *ngFor="let taxonomy of taxonomies">
+                <li *ngFor="let taxon of taxonomy.root.taxons">
+                   <a [routerLink]="['/home/', {id: taxon.id.toString()}]">{{taxon.name}}</a>
+                </li>
+              </ul>
+            </ul>
+          </li>
+          <li class="dropdown" dropdown>
+            <a class="dropdown-toggle" dropdownToggle>
+              <i class="" style="font-style:normal !important">Resources</i>
+              <span class="caret"></span> 
+            </a>
+            <ul class="dropdown-menu" *dropdownMenu>
+              <li><a routerLink="/resources/training-video">Training Video</a></li>
+              <li><a routerLink="/resources/manual">Manual</a></li>
+            </ul>
+          </li>
+          <!-- <li class=""><a routerLink="/blog/resources">Resources</a></li> -->
+          <li class=""><a routerLink="/doctors">Doctors</a></li>
+          <!-- <li class=""><a routerLink="/news">News and Events</a></li>           -->
+        </ul>
+
+        <app-profile-dropdown [totalCartItems]="totalCartItems | async" [isAuthenticated]="isAuthenticated | async"></app-profile-dropdown>
+
+        <!-- <div class="desktop-query">
+        <input placeholder="Search" class="desktop-searchBar">
+        <a class="desktop-submit">
+          <span class="web-sprite desktop-iconSearch sprites-search"></span>
+        </a>
+      </div> -->
+      </div>
+    </div>
+  </nav>
+  <div>

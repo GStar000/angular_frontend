@@ -1,0 +1,58 @@
+h1 {
+  font-size: 30px;
+}
+p{
+  font-size: 17px;
+}
+
+.content-middle {
+  padding-top:20px;
+}
+
+.welcome{
+  height:310px;
+  padding:20px;
+  color: #333;
+  border: outset #6FB539 4px;
+  border-width:2px;
+  border-color: #6FB539;
+}
+.welcome h1{
+  text-align: center;
+}
+.welcome p{
+
+}
+
+.notice{
+  height:310px;
+  background-color: #6FB539;
+  color: white;
+  padding: 20px;
+}
+.notice h1{
+  text-align: center;
+}
+.notice p{
+}
+.content-img{
+  padding-top:20px;
+  padding-bottom:10px;
+}
+
+@media(max-width:1200px){
+  .welcome {
+    height: 350px;
+  }
+  .notice {
+    height: 350px;
+  }
+}
+@media(max-width:990px){
+  .welcome {
+    height: 100%;
+  }
+  .notice {
+    height: 100%;
+  }
+}

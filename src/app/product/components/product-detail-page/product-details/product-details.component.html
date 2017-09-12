@@ -1,0 +1,28 @@
+<div *ngIf="product != null" class="row padding-top">
+  <div class="col-md-6">
+    <div class="row">
+      <app-image-container [images]="images" [selectedImage]="images[0]" class="col-md-12">
+      </app-image-container>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+
+    <app-product-price-info [product]="product" [price]="product_price" class="row">
+    </app-product-price-info>
+    <app-product-description [description]="product.description" class="row">
+    </app-product-description>
+  </div>
+  <div class="row">
+    <!-- <app-product-order-info [optionTypes]="product.option_types" class="col-md-12">
+    </app-product-order-info> -->
+    <!-- <app-product-upload-file *ngIf="product.file_up_load" class="col-md-12">
+    </app-product-upload-file> -->
+    <app-product-variants [customOptionTypesHash]="customOptionTypesHash" [currentSelectedOptions]="currentSelectedOptions" [optionTypes]="product.option_types" (onOptionClickEvent)="onOptionClick($event)"
+      [correspondingOptions]="correspondingOptions" [mainOptions]="mainOptions" class="col-md-12"></app-product-variants>
+    <div style="padding-right: 20%; padding-left: 20%;">
+      <button (click)="addToCart()" class="pdp-add-to-bag pdp-button" style="margin-top:40px;">ADD TO BAG</button>
+    </div>
+  </div>
+</div>
+
